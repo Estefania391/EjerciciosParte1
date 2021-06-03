@@ -1,0 +1,27 @@
+
+<!Doctype html>
+<html>
+  <title>Ejercicio 2</title>
+<body>
+
+<h1>Calcular los días transcurridos</h1>
+
+<form action="/action_page.php">
+  <label for="fecha1"> Selecciona la fecha: </label>
+  <input type="date" id="fecha1" name="fecha1">
+  <label for="fecha2"> Selecciona la fecha: </label>
+  <input type="date" id="fecha2" name="fecha2">
+  <input id="Calcular" type="button" value="Resultado" onclick="calcular();" />
+</form>
+
+</body>
+<script type="text/javascript" src="Ej2.html">
+
+
+function calcular(){
+ var x= document.getElementById("fecha2").value-document.getElementById("fecha1").value;
+ document.getElementById("contenido").innerHTML="Los días transcurrodos son:" + x 
+}
+
+</script>
+</html>

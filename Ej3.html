@@ -1,0 +1,102 @@
+<!DOCTYPE html >
+
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Ejercicio 3</title>
+	<link rel="stylesheet" type="text/css" href="uno.css" media="screen" />
+	<meta name="author" content="Nacho" />
+	<!-- Date: 2013-11-20 -->
+	
+	<script type="text/javascript">
+				
+		function palabras(){
+			
+			var cadena = prompt("Introduce la cadena:");
+			var espacio = " ";
+			var longitud=0;
+			var vector=new Array();
+			var pos=0;
+			// Convertir la cadena en un array
+			if (cadena.length == 0){
+				ejercicio3();
+				return;
+			}
+			
+			for (var i in cadena)
+			{
+				longitud++;	
+			}
+					
+			vector[pos]="";
+			for(var i = 0; i < longitud; i++)
+			{
+				if(cadena[i]!=espacio)
+				{
+					vector[pos]+=cadena[i];
+				}
+				else
+				{
+					pos++;
+					vector[pos]="";
+					}	
+			}
+						
+			var resultado = "La cadena \""+cadena+"\" ";
+			 // Eliminar los espacios en blanco (este paso es demasiado largo ya que no se utiliza la funcion "replace")
+			var cadenaSinEspacios = "";
+			for(i in vector) {
+			  if(vector[i] != " ") {
+			    cadenaSinEspacios += vector[i];
+			  }
+			}
+			 
+			var letras = cadenaSinEspacios.split("");
+			var inverso = cadenaSinEspacios.split("").reverse();
+			 
+			var igual = true;
+			for(i in letras) {
+			  if(letras[i] == inverso[i]) {
+			  
+			  }
+			  else {
+			       igual = false;
+			  }
+			}
+			if(igual) {
+			  resultado += " es un palíndromo";
+			}
+			else {
+			  resultado += " no es un palíndromo";
+			}
+			 
+			alert("La cadena tiene " + vector.length + " palabras" + "\nLa primera palabra es: " + vector[0] + 
+					"\nLa última palabra es: " + vector[vector.length-1] +
+					"\nLa cadena en orden inverso es: " + vector.reverse() + 
+					"\nLas palabras ordenadas de la 'A' a la 'Z' son: " + vector.sort() + 
+					"\nLas palabras ordenadas de la 'Z' a la 'A' son: " + vector.sort().reverse() + 
+					"\n" + resultado);
+        }
+	</script>
+	
+</head>
+<body>
+	<h2>Leer una cadena de texto mediante el método prompt()</h2>
+	<div id="indicaciones">
+		<h4>Obtener</h4>
+        <p>            
+			● Número de palabras<br>
+			● Primera palabra y última palabra<br>
+			● Las palabras colocadas en orden inverso<br>
+			● Las palabras ordenadas de la a a la z<br>
+			● Las palabras ordenadas de la z a la a<br>
+			● Un mensaje indicando si la frase es un palíndromo.<br>
+			Ejemplo de palindromo complejo: "La ruta natural", “Anita lava la tina”,
+			“Reconocer”<br>
+		</p>
+		
+		<input id="ejecutar" type="button" value="Resultado" onclick="palabras();" />
+		<input id="volver" type="button" value="Volver" onclick="history.go(-1)"/>
+	</div>
+</body>
+</html>
